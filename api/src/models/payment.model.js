@@ -56,6 +56,9 @@ const paymentSchema = new mongoose.Schema(
   },
 );
 
+paymentSchema.index({ orderId: 1 });
+paymentSchema.index({ status: 1, createdAt: -1 });
+
 const Payment = mongoose.model("Payment", paymentSchema);
 
 export default Payment;
